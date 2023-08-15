@@ -1,0 +1,61 @@
+{
+    "env" : {
+        "agent_manager_use_tree": false,
+        "agent_obs_type": "self",
+        "debug": false,
+        "dof_threshold": 1040,
+        "dimensionless": true,
+        "edge_feature_is_relative": true,
+        "enable_deref": true,
+        // set this high, e.g. 100, to prevent initial refinements
+        "error_threshold": 100,
+        "log_obs": true,
+        "max_depth": 1,
+        "multi_objective": false,
+        "obs_uses_true_error": true,
+        "observation_type": "graph",
+        "observe_depth": true,
+        "observe_dof_and_time_balance": false,
+        "penalize_dof_excess": true,
+        "reward_type": "global",
+        "reward_uses_true_error": true,
+        "solver": {
+            "aniso": true,
+            "CFL": null,
+            "dt": 0.002,
+            "element_shape": "quad",
+            "error_method": "projected",
+            "initial_condition": {
+                "coefficient": "GaussianCoefficient",
+                "params": {
+                    "randomize": "discrete",
+                    "vx_discrete": [1.0],
+                    "vy_discrete": [0.0],
+                    "w_discrete": [100],
+                    "x0_discrete": [0.5]
+                }
+            },
+            "jit": true,
+            "length": 2,
+            "mesh_file": "",
+            "nx": 64,
+            "ny": 1,
+            "nz": 1,
+            "orbiting_velocities": false,
+            "order": 1,
+            "periodic": true,
+            "ratio": 25,
+            "refine_IC": false,
+            "refinement_mode": "h",
+            "single_step": false,
+            "sx": 2.0,
+            "sy": 1.0,
+            "sz": 1.0,
+            "t_step": 0.5
+        },
+        "solver_name": "advection",
+        "stopping_criteria": "budget_or_time",
+        "t_final": 1.0,
+	"t_history": 1
+    }
+}

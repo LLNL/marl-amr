@@ -1,0 +1,149 @@
+{
+    "env" : {
+        "agent_manager_use_tree": false,
+        "agent_obs_type": "self",
+        "debug": false,
+        "dof_threshold": 1000000,
+        "dimensionless": true,
+        "edge_feature_is_relative": true,
+        "enable_deref": true,
+        // set this high, e.g. 100, to prevent initial refinements
+        "error_threshold": 5.0e-4,
+        "log_obs": true,
+        "max_depth": 1,
+        "multi_objective": false,
+        "obs_uses_true_error": true,
+        "observation_type": "graph",
+        "observe_depth": true,
+        "observe_dof_and_time_balance": false,
+        "overrefine_penalty_factor": 5.0,
+        "penalize_dof_excess": true,
+        "reward_type": "global",
+        "reward_uses_true_error": true,
+        "solver": {
+            "aniso": false,
+            "CFL": null,
+            "dt": 0.002,
+            "element_shape": "quad", // "triangle", "quad"
+            "error_method": "projected",
+            "initial_condition": {
+                "coefficient": "Gaussian2DCoefficient",
+                // "coefficient": "AnisotropicGaussian2DCoefficient",
+                // "coefficient": "Ring2DCoefficient",
+                // "coefficient": "OppositeGaussian2DCoefficient",
+                // "coefficient": "Gaussian3DCoefficient",
+                // "coefficient": "OrbitingGaussian2DCoefficient",
+                "params": {
+                    // "randomize": "discrete",
+                    // "theta_discrete": [0.125],
+                    // "u0_discrete": [1.5],
+                    // "w_discrete": [100],
+                    // "x0_discrete": [0.5],
+                    // "y0_discrete": [0.5]
+
+                    // One Gaussian
+                    "randomize": "uniform",
+                    "theta_range": [0.0, 1.0],
+                    "u0_range": [0.0, 1.5],
+                    "w_range": [100, 100],
+                    "x0_range": [0.5, 1.5],
+                    "y0_range": [0.5, 1.5]
+
+                    // Two Gaussians
+                    // "theta_discrete": [0.0],
+                    // "u0_discrete": [1.5],
+                    // "w_discrete": [100],
+                    // "x0_discrete": [0.5],
+                    // "y0_discrete": [0.5],
+                    // "x1_discrete": [0.5],
+                    // "y1_discrete": [1.5]
+
+                    // Two Opposite Gaussians
+                    // "randomize": "uniform",
+                    // "u0_range": [0.0, 1.5],
+                    // "w_range": [100, 100],
+                    // "x0_range": [0.5, 1.5],
+                    // "y0_range": [0.3, 0.7],
+                    // "x1_range": [0.5, 1.5],
+                    // "y1_range": [1.3, 1.7]
+
+                    // Gaussian on star mesh
+                    // "randomize": "uniform",
+                    // "theta_range": [0.05, 0.25],
+                    // "u0_range": [0.0, 6.0],
+                    // "w_range": [5, 5],
+                    // "x0_range": [-1, -1],
+                    // "y0_range": [-4, -4]
+
+                    // Triangular elements
+                    // "randomize": "uniform",
+                    // "theta_range": [0.0, 1],
+                    // "u0_range": [0.0, 1.5],
+                    // "w_range": [100.0, 100.0],
+                    // "x0_range": [0.5, 1.5],
+                    // "y0_range": [0.5, 1.5]
+
+                    // 3D Gaussian
+                    // "randomize": "uniform",
+                    // "phi_range": [0.0, 1.0],
+                    // "theta_range": [0.0, 1],
+                    // "u0_range": [0.0, 1.5],
+                    // "w_range": [100.0, 100.0],
+                    // "x0_range": [0.5, 1.5],
+                    // "y0_range": [0.5, 1.5],
+                    // "z0_range": [0.5, 1.5]
+
+                    // Anisotropic 2D Gaussian
+                    // "randomize": "uniform",
+                    // "theta_range": [0.0, 1],
+                    // "u0_range": [0.0, 1.5],
+                    // "wx_range": [20.0, 100.0],
+                    // "wy_range": [20.0, 100.0],
+                    // "wxy_range": [20.0, 100.0],
+                    // "x0_range": [0.5, 1.5],
+                    // "y0_range": [0.5, 1.5]
+
+                    // Ring
+                    // "randomize": "uniform",
+                    // "r_range": [0.1, 0.3],
+                    // "theta_range": [0.0, 1],
+                    // "u0_range": [0.0, 1.5],
+                    // "w_range": [100.0, 100.0],
+                    // "x0_range": [0.5, 1.5],
+                    // "y0_range": [0.5, 1.5]
+
+                    // Orbiting Gaussian
+                    // "randomize": "discrete",
+                    // "omega_discrete": [1.570796],
+                    // "w_discrete": [100],
+                    // "x0_discrete": [1.0],
+                    // "xc_discrete": [1.0],
+                    // "y0_discrete": [0.5],
+                    // "yc_discrete": [1.0]
+                }
+            },
+            "jit": true,
+            "length": 2,
+            // "mesh_file": "../envs/solvers/star_scaled_and_refined.mesh",
+            "mesh_file": "",
+            "nx": 16,
+            "ny": 16,
+            "nz": 1,
+            "orbiting_velocities": false,
+            "order": 1,
+            "periodic": true,
+            "ratio": 25,
+            "refine_IC": true,
+            "refinement_mode": "h",
+            "single_step": false,
+            "sx": 2.0,
+            "sy": 2.0,
+            "sz": 1.0,
+            "t_step": 0.25
+        },
+        "solver_name": "advection",
+        "stopping_criteria": "budget_or_time",
+        "t_final": 0.75,
+	"t_history": 1
+    }
+}
